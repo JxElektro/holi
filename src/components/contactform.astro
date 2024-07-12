@@ -2,57 +2,57 @@
 import Button from "./ui/button.astro";
 ---
 
-<!-- To make this contact form work, create your free access key from https://web3forms.com/
-     Then you will get all form submissions in your email inbox. -->
+<!-- Para que este formulario de contacto funcione, crea tu clave de acceso gratuita en https://web3forms.com/
+     Luego recibirás todas las sumisiones del formulario en tu bandeja de entrada. -->
 <form
   action="https://api.web3forms.com/submit"
   method="POST"
   id="form"
   class="needs-validation"
   novalidate>
-  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-  <!-- Create your free access key from https://web3forms.com/ -->
+  <input type="hidden" name="access_key" value="9cdbf19b-391e-4ebc-93ed-aa2d1f18c36b" />
+  <!-- Crea tu clave de acceso gratuita en https://web3forms.com/ -->
   <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
   <div class="mb-5">
     <input
       type="text"
-      placeholder="Full Name"
+      placeholder="Nombre Completo"
       required
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
       name="name"
     />
     <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-      Please provide your full name.
+      Por favor, proporciona tu nombre completo.
     </div>
   </div>
   <div class="mb-5">
-    <label for="email_address" class="sr-only">Email Address</label><input
+    <label for="email_address" class="sr-only">Correo Electrónico</label><input
       id="email_address"
       type="email"
-      placeholder="Email Address"
+      placeholder="Correo Electrónico"
       name="email"
       required
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
     />
     <div class="empty-feedback text-red-400 text-sm mt-1">
-      Please provide your email address.
+      Por favor, proporciona tu correo electrónico.
     </div>
     <div class="invalid-feedback text-red-400 text-sm mt-1">
-      Please provide a valid email address.
+      Por favor, proporciona una dirección de correo válida.
     </div>
   </div>
   <div class="mb-3">
     <textarea
       name="message"
       required
-      placeholder="Your Message"
+      placeholder="Tu Mensaje"
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none h-36 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
     ></textarea>
     <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-      Please enter your message.
+      Por favor, ingresa tu mensaje.
     </div>
   </div>
-  <Button type="submit" size="lg" block>Send Message</Button>
+  <Button type="submit" size="lg" block>Enviar Mensaje</Button>
   <div id="result" class="mt-3 text-center"></div>
 </form>
 
@@ -91,7 +91,7 @@ import Button from "./ui/button.astro";
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
-    result.innerHTML = "Sending...";
+    result.innerHTML = "Enviando...";
 
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -114,7 +114,7 @@ import Button from "./ui/button.astro";
       })
       .catch((error) => {
         console.log(error);
-        result.innerHTML = "Something went wrong!";
+        result.innerHTML = "¡Algo salió mal!";
       })
       .then(function () {
         form.reset();
